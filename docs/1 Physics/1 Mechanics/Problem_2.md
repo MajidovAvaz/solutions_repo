@@ -1,7 +1,7 @@
 # Problem 2
 # Theoretical Foundation: Forced Damped Pendulum
 
-## Governing Equation
+### Governing Equation
 
 The motion of a **forced damped pendulum** is described by:
 
@@ -14,7 +14,7 @@ where:
 - $g/L$ represents the natural oscillation frequency,
 - $A \cos(\omega t)$ is the external periodic force.
 
-## Small-Angle Approximation
+### Small-Angle Approximation
 
 For small angles ($\theta \approx 0$), we use the approximation $\sin\theta \approx \theta$, simplifying the equation to:
 
@@ -24,7 +24,7 @@ $$
 
 This reduces the system to a **linear differential equation**, which can be solved analytically.
 
-## Resonance and Energy Implications
+### Resonance and Energy Implications
 
 - **Natural Frequency:**  
   $$
@@ -42,7 +42,7 @@ This provides the foundation for further numerical simulations, where we analyze
 
 # Analysis of Dynamics
 
-## Influence of Parameters on Motion
+### Influence of Parameters on Motion
 
 The behavior of the **forced damped pendulum** depends on key parameters:
 
@@ -58,7 +58,7 @@ The behavior of the **forced damped pendulum** depends on key parameters:
    - When $\omega \approx \omega_0$ (natural frequency), resonance occurs, amplifying oscillations.  
    - At non-resonant frequencies, motion remains stable but varies in amplitude.  
 
-## Transition from Regular to Chaotic Motion
+### Transition from Regular to Chaotic Motion
 
 - At **low driving forces**, the pendulum follows predictable periodic motion.  
 - Increasing $A$ or adjusting $\omega$ can introduce **nonlinear effects**, where motion becomes **quasi-periodic** or **chaotic**.  
