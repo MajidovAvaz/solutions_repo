@@ -172,6 +172,68 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h1 id="theoretical-foundation-forced-damped-pendulum">Theoretical Foundation: Forced Damped Pendulum</h1>
+<h2 id="governing-equation">Governing Equation</h2>
+<p>The motion of a <strong>forced damped pendulum</strong> is described by:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin\theta = A \cos(\omega t)
+\]</div>
+<p>where:
+- <span class="arithmatex">\(b\)</span> is the damping coefficient,
+- <span class="arithmatex">\(g/L\)</span> represents the natural oscillation frequency,
+- <span class="arithmatex">\(A \cos(\omega t)\)</span> is the external periodic force.</p>
+<h2 id="small-angle-approximation">Small-Angle Approximation</h2>
+<p>For small angles (<span class="arithmatex">\(\theta \approx 0\)</span>), we use the approximation <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, simplifying the equation to:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \theta = A \cos(\omega t)
+\]</div>
+<p>This reduces the system to a <strong>linear differential equation</strong>, which can be solved analytically.</p>
+<h2 id="resonance-and-energy-implications">Resonance and Energy Implications</h2>
+<ul>
+<li><strong>Natural Frequency:</strong><br/>
+  $$
+  \omega_0 = \sqrt{g/L}
+  $$</li>
+<li><strong>Resonance Condition:</strong><br/>
+  When the driving frequency <span class="arithmatex">\(\omega\)</span> matches <span class="arithmatex">\(\omega_0\)</span>, the system experiences <strong>resonance</strong>, leading to <strong>large oscillations</strong>.</li>
+<li><strong>Damping Effects:</strong><br/>
+  Higher damping (<span class="arithmatex">\(b\)</span>) reduces oscillation amplitude and prevents unbounded energy growth.</li>
+</ul>
+<p>This provides the foundation for further numerical simulations, where we analyze behavior beyond the small-angle approximation.</p>
+<h1 id="analysis-of-dynamics">Analysis of Dynamics</h1>
+<h2 id="influence-of-parameters-on-motion">Influence of Parameters on Motion</h2>
+<p>The behavior of the <strong>forced damped pendulum</strong> depends on key parameters:</p>
+<ol>
+<li><strong>Damping Coefficient (<span class="arithmatex">\(b\)</span>)</strong> </li>
+<li>Higher damping reduces oscillations and eventually brings the pendulum to rest.  </li>
+<li>
+<p>Lower damping allows sustained motion and can lead to resonance effects.  </p>
+</li>
+<li>
+<p><strong>Driving Amplitude (<span class="arithmatex">\(A\)</span>)</strong> </p>
+</li>
+<li>Small <span class="arithmatex">\(A\)</span> results in steady periodic motion.  </li>
+<li>
+<p>Large <span class="arithmatex">\(A\)</span> can induce irregular motion, leading to chaotic behavior.  </p>
+</li>
+<li>
+<p><strong>Driving Frequency (<span class="arithmatex">\(\omega\)</span>)</strong> </p>
+</li>
+<li>When <span class="arithmatex">\(\omega \approx \omega_0\)</span> (natural frequency), resonance occurs, amplifying oscillations.  </li>
+<li>At non-resonant frequencies, motion remains stable but varies in amplitude.  </li>
+</ol>
+<h2 id="transition-from-regular-to-chaotic-motion">Transition from Regular to Chaotic Motion</h2>
+<ul>
+<li>At <strong>low driving forces</strong>, the pendulum follows predictable periodic motion.  </li>
+<li>Increasing <span class="arithmatex">\(A\)</span> or adjusting <span class="arithmatex">\(\omega\)</span> can introduce <strong>nonlinear effects</strong>, where motion becomes <strong>quasi-periodic</strong> or <strong>chaotic</strong>.  </li>
+<li><strong>Chaotic motion</strong> means small differences in initial conditions lead to drastically different trajectories, making long-term prediction impossible.  </li>
+</ul>
+<h3 id="physical-interpretation"><strong>Physical Interpretation</strong></h3>
+<ul>
+<li><strong>Regular motion</strong> is seen in <strong>clocks and metronomes</strong> where precise oscillations are required.  </li>
+<li><strong>Chaotic behavior</strong> appears in <strong>weather systems, electrical circuits, and biological rhythms</strong>, where nonlinearity dominates.  </li>
+</ul>
+<p>Next, we simulate these behaviors numerically to visualize the transition between order and chaos. 🚀</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
