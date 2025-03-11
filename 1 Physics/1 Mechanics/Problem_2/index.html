@@ -173,7 +173,7 @@
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
 <h1 id="theoretical-foundation-forced-damped-pendulum">Theoretical Foundation: Forced Damped Pendulum</h1>
-<h2 id="governing-equation">Governing Equation</h2>
+<h3 id="governing-equation">Governing Equation</h3>
 <p>The motion of a <strong>forced damped pendulum</strong> is described by:</p>
 <div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin\theta = A \cos(\omega t)
@@ -182,13 +182,13 @@
 - <span class="arithmatex">\(b\)</span> is the damping coefficient,
 - <span class="arithmatex">\(g/L\)</span> represents the natural oscillation frequency,
 - <span class="arithmatex">\(A \cos(\omega t)\)</span> is the external periodic force.</p>
-<h2 id="small-angle-approximation">Small-Angle Approximation</h2>
+<h3 id="small-angle-approximation">Small-Angle Approximation</h3>
 <p>For small angles (<span class="arithmatex">\(\theta \approx 0\)</span>), we use the approximation <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, simplifying the equation to:</p>
 <div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \theta = A \cos(\omega t)
 \]</div>
 <p>This reduces the system to a <strong>linear differential equation</strong>, which can be solved analytically.</p>
-<h2 id="resonance-and-energy-implications">Resonance and Energy Implications</h2>
+<h3 id="resonance-and-energy-implications">Resonance and Energy Implications</h3>
 <ul>
 <li><strong>Natural Frequency:</strong><br/>
   $$
@@ -201,7 +201,7 @@
 </ul>
 <p>This provides the foundation for further numerical simulations, where we analyze behavior beyond the small-angle approximation.</p>
 <h1 id="analysis-of-dynamics">Analysis of Dynamics</h1>
-<h2 id="influence-of-parameters-on-motion">Influence of Parameters on Motion</h2>
+<h3 id="influence-of-parameters-on-motion">Influence of Parameters on Motion</h3>
 <p>The behavior of the <strong>forced damped pendulum</strong> depends on key parameters:</p>
 <ol>
 <li><strong>Damping Coefficient (<span class="arithmatex">\(b\)</span>)</strong> </li>
@@ -222,7 +222,7 @@
 <li>When <span class="arithmatex">\(\omega \approx \omega_0\)</span> (natural frequency), resonance occurs, amplifying oscillations.  </li>
 <li>At non-resonant frequencies, motion remains stable but varies in amplitude.  </li>
 </ol>
-<h2 id="transition-from-regular-to-chaotic-motion">Transition from Regular to Chaotic Motion</h2>
+<h3 id="transition-from-regular-to-chaotic-motion">Transition from Regular to Chaotic Motion</h3>
 <ul>
 <li>At <strong>low driving forces</strong>, the pendulum follows predictable periodic motion.  </li>
 <li>Increasing <span class="arithmatex">\(A\)</span> or adjusting <span class="arithmatex">\(\omega\)</span> can introduce <strong>nonlinear effects</strong>, where motion becomes <strong>quasi-periodic</strong> or <strong>chaotic</strong>.  </li>
