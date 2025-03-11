@@ -171,6 +171,8 @@ plt.title("Phase Space Diagram")
 plt.grid()
 plt.show()
 ```
+![alt text](image-2.png)
+
 
 ### 3. **Poincaré Section (Chaos Analysis)**
 
@@ -189,3 +191,4 @@ plt.title("Poincaré Section")
 plt.grid()
 plt.show()
 ```
+![alt text](image-3.png)
