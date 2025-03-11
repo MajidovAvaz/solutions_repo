@@ -178,55 +178,57 @@
 <p>The motion of a projectile follows the fundamental kinematic equations under uniform gravitational acceleration. Assuming no air resistance, the equations for horizontal and vertical motion are:</p>
 <div class="arithmatex">\[
  x(t) = v_0 \cos(\theta) t
-$$
-$$
+\]</div>
+<div class="arithmatex">\[
  y(t) = v_0 \sin(\theta) t - \frac{1}{2} g t^2
 \]</div>
 <p>where:
-- $ v_0 $ is the initial velocity,
-- $ \theta $ is the launch angle,
-- $ g $ is the acceleration due to gravity,
-- $ t $ is the time.</p>
+- <span class="arithmatex">\(v_0\)</span> is the initial velocity,
+- <span class="arithmatex">\(\theta\)</span> is the launch angle,
+- <span class="arithmatex">\(g\)</span> is the acceleration due to gravity,
+- <span class="arithmatex">\(t\)</span> is the time.</p>
 <h3 id="2-time-of-flight-and-range">2. Time of Flight and Range</h3>
-<p>The total time of flight $ T $ is obtained by setting $ y(T) = 0 $:
-$$
+<p>The total time of flight <span class="arithmatex">\(T\)</span> is obtained by setting <span class="arithmatex">\(y(T) = 0\)</span>:</p>
+<div class="arithmatex">\[
  T = \frac{2 v_0 \sin(\theta)}{g}
-$$</p>
-<p>The range $ R $ is the horizontal distance covered:
-$$
+\]</div>
+<p>The range $ R $ is the horizontal distance covered:</p>
+<div class="arithmatex">\[
  R = v_0 \cos(\theta) T = \frac{v_0^2 \sin(2\theta)}{g}
-$$</p>
+\]</div>
 <h3 id="3-family-of-solutions">3. Family of Solutions</h3>
 <ul>
-<li>The range depends on $ \sin(2\theta) $, which is maximized at $ 45^\circ $.</li>
-<li>Different initial velocities $ v_0 $ and angles lead to a family of possible trajectories.</li>
-<li>Symmetry: The same range is achieved for $ \theta $ and $ 90^\circ - \theta $.</li>
+<li>The range depends on <span class="arithmatex">\(\sin(2\theta)\)</span>, which is maximized at <span class="arithmatex">\(45^\circ\)</span>.</li>
+<li>Different initial velocities <span class="arithmatex">\(v_0\)</span> and angles lead to a family of possible trajectories.</li>
+<li>Symmetry: The same range is achieved for <span class="arithmatex">\(\theta\)</span> and <span class="arithmatex">\(90^\circ - \theta\)</span>.</li>
 </ul>
 <p>This provides the foundation for analyzing the range as a function of projection angle in simulations.</p>
 <h2 id="analysis-of-the-range">Analysis of the Range</h2>
 <h3 id="1-dependence-on-angle-of-projection">1. Dependence on Angle of Projection</h3>
 <ul>
-<li>The horizontal range $ R $ follows the relation:
-  $$
+<li>The horizontal range <span class="arithmatex">\(R\)</span> follows the relation:</li>
+</ul>
+<p>$$
   R = \frac{v_0^2 \sin(2\theta)}{g}
-  $$</li>
-<li>The range is maximum at $ 45^\circ $, where $ \sin(90^\circ) = 1 $.</li>
-<li>Angles $ \theta $ and $ 90^\circ - \theta $ produce the same range due to symmetry.</li>
+  $$</p>
+<ul>
+<li>The range is maximum at <span class="arithmatex">\(45^\circ\)</span>, where <span class="arithmatex">\(\sin(90^\circ) = 1\)</span>.</li>
+<li>Angles <span class="arithmatex">\(\theta\)</span> and <span class="arithmatex">\(90^\circ - \theta\)</span> produce the same range due to symmetry.</li>
 </ul>
 <h3 id="2-influence-of-other-parameters">2. Influence of Other Parameters</h3>
 <ul>
-<li><strong>Initial Velocity ($ v_0 $):</strong></li>
-<li>Range increases quadratically with $ v_0 $, meaning doubling $ v_0 $ quadruples the range.</li>
-<li><strong>Gravitational Acceleration ($ g $):</strong></li>
+<li><strong>Initial Velocity (<span class="arithmatex">\(v_0\)</span>):</strong></li>
+<li>Range increases quadratically with <span class="arithmatex">\(v_0\)</span>, meaning doubling <span class="arithmatex">\(v_0\)</span> quadruples the range.</li>
+<li><strong>Gravitational Acceleration (<span class="arithmatex">\(g\)</span>):</strong></li>
 <li>Higher gravity reduces range since it shortens time of flight.</li>
-<li>On the Moon (lower $ g $), projectiles travel much farther.</li>
+<li>On the Moon (lower <span class="arithmatex">\(g\)</span>), projectiles travel much farther.</li>
 </ul>
 <p>This analysis shows how range depends on key parameters and guides real-world applications such as sports and engineering.</p>
 <h2 id="practical-applications">Practical Applications</h2>
 <h3 id="1-uneven-terrain">1. Uneven Terrain</h3>
 <ul>
 <li>In real-world scenarios, projectiles often land on slopes or rough surfaces.</li>
-<li>The governing equations can be modified to account for variable ground height $ h(x) $.</li>
+<li>The governing equations can be modified to account for variable ground height <span class="arithmatex">\(h(x)\)</span>.</li>
 <li>Applications include military ballistics and sports science.</li>
 </ul>
 <h3 id="2-air-resistance">2. Air Resistance</h3>
@@ -236,7 +238,7 @@ $$</p>
   $$
   F_d = -kv
   $$
-  where $ k $ is the drag coefficient.</li>
+  where <span class="arithmatex">\(k\)</span> is the drag coefficient.</li>
 <li>This leads to complex differential equations that require numerical solutions.</li>
 <li>Relevant in aerodynamics, meteorology, and spacecraft re-entry calculations.</li>
 </ul>
@@ -271,8 +273,8 @@ projectile_range(v0=20)
 <h3 id="2-visualization">2. Visualization</h3>
 <ul>
 <li>The plot generated shows how the range varies with the launch angle.</li>
-<li>The maximum range occurs at $ 45^\circ $.</li>
-<li>Changing initial velocity $ v_0 $ shifts the curve but maintains the same pattern.</li>
+<li>The maximum range occurs at <span class="arithmatex">\(45^\circ\)</span>.</li>
+<li>Changing initial velocity <span class="arithmatex">\(v_0\)</span> shifts the curve but maintains the same pattern.</li>
 </ul>
 <p>This computational tool helps visualize how projectile range behaves under different conditions, offering insights for engineering and physics applications.</p>
 </div>
