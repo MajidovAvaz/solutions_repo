@@ -173,7 +173,7 @@
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
 <h1 id="theoretical-foundation-forced-damped-pendulum">Theoretical Foundation: Forced Damped Pendulum</h1>
-<h3 id="governing-equation">Governing Equation</h3>
+<h3 id="1-governing-equation">1. Governing Equation</h3>
 <p>The motion of a <strong>forced damped pendulum</strong> is described by:</p>
 <div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin\theta = A \cos(\omega t)
@@ -182,13 +182,13 @@
 - <span class="arithmatex">\(b\)</span> is the damping coefficient,
 - <span class="arithmatex">\(g/L\)</span> represents the natural oscillation frequency,
 - <span class="arithmatex">\(A \cos(\omega t)\)</span> is the external periodic force.</p>
-<h3 id="small-angle-approximation">Small-Angle Approximation</h3>
+<h3 id="2-small-angle-approximation">2. Small-Angle Approximation</h3>
 <p>For small angles (<span class="arithmatex">\(\theta \approx 0\)</span>), we use the approximation <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, simplifying the equation to:</p>
 <div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \theta = A \cos(\omega t)
 \]</div>
 <p>This reduces the system to a <strong>linear differential equation</strong>, which can be solved analytically.</p>
-<h3 id="resonance-and-energy-implications">Resonance and Energy Implications</h3>
+<h3 id="3-resonance-and-energy-implications">3. Resonance and Energy Implications</h3>
 <ul>
 <li><strong>Natural Frequency:</strong><br/>
   $$
@@ -199,9 +199,8 @@
 <li><strong>Damping Effects:</strong><br/>
   Higher damping (<span class="arithmatex">\(b\)</span>) reduces oscillation amplitude and prevents unbounded energy growth.</li>
 </ul>
-<p>This provides the foundation for further numerical simulations, where we analyze behavior beyond the small-angle approximation.</p>
 <h1 id="analysis-of-dynamics">Analysis of Dynamics</h1>
-<h3 id="influence-of-parameters-on-motion">Influence of Parameters on Motion</h3>
+<h3 id="1-influence-of-parameters-on-motion">1. Influence of Parameters on Motion</h3>
 <p>The behavior of the <strong>forced damped pendulum</strong> depends on key parameters:</p>
 <ol>
 <li><strong>Damping Coefficient (<span class="arithmatex">\(b\)</span>)</strong> </li>
@@ -222,18 +221,117 @@
 <li>When <span class="arithmatex">\(\omega \approx \omega_0\)</span> (natural frequency), resonance occurs, amplifying oscillations.  </li>
 <li>At non-resonant frequencies, motion remains stable but varies in amplitude.  </li>
 </ol>
-<h3 id="transition-from-regular-to-chaotic-motion">Transition from Regular to Chaotic Motion</h3>
+<h3 id="2-transition-from-regular-to-chaotic-motion">2. Transition from Regular to Chaotic Motion</h3>
 <ul>
 <li>At <strong>low driving forces</strong>, the pendulum follows predictable periodic motion.  </li>
 <li>Increasing <span class="arithmatex">\(A\)</span> or adjusting <span class="arithmatex">\(\omega\)</span> can introduce <strong>nonlinear effects</strong>, where motion becomes <strong>quasi-periodic</strong> or <strong>chaotic</strong>.  </li>
 <li><strong>Chaotic motion</strong> means small differences in initial conditions lead to drastically different trajectories, making long-term prediction impossible.  </li>
 </ul>
-<h3 id="physical-interpretation"><strong>Physical Interpretation</strong></h3>
+<h3 id="3-physical-interpretation">3. <strong>Physical Interpretation</strong></h3>
 <ul>
 <li><strong>Regular motion</strong> is seen in <strong>clocks and metronomes</strong> where precise oscillations are required.  </li>
 <li><strong>Chaotic behavior</strong> appears in <strong>weather systems, electrical circuits, and biological rhythms</strong>, where nonlinearity dominates.  </li>
 </ul>
-<p>Next, we simulate these behaviors numerically to visualize the transition between order and chaos. 🚀</p>
+<h1 id="practical-applications-of-the-forced-damped-pendulum">Practical Applications of the Forced Damped Pendulum</h1>
+<p>The <strong>forced damped pendulum</strong> model has widespread applications in engineering, physics, and real-world systems. Below are some key areas where it plays a crucial role:</p>
+<h3 id="1-energy-harvesting-devices">1. Energy Harvesting Devices</h3>
+<ul>
+<li><strong>Example:</strong> Piezoelectric energy harvesters convert oscillations into electrical power.  </li>
+<li>The pendulum’s motion can be used to generate electricity in <strong>wearable sensors</strong>, <strong>self-powered devices</strong>, and <strong>vibrational energy systems</strong>.  </li>
+</ul>
+<h3 id="2-suspension-bridges">2. Suspension Bridges</h3>
+<ul>
+<li>Bridges experience oscillations due to <strong>wind forces</strong> and <strong>traffic loads</strong>.  </li>
+<li>If the forcing frequency matches the bridge’s natural frequency (<strong>resonance</strong>), it can cause <strong>dangerous oscillations</strong> (e.g., Tacoma Narrows Bridge collapse).  </li>
+<li>Engineers use <strong>damping mechanisms</strong> to prevent excessive movement.  </li>
+</ul>
+<h3 id="3-oscillating-electrical-circuits-rlc-circuits">3. Oscillating Electrical Circuits (RLC Circuits)</h3>
+<ul>
+<li>The forced damped pendulum is analogous to <strong>RLC circuits</strong> in electronics.  </li>
+<li>In an RLC circuit:</li>
+<li><strong>Damping (<span class="arithmatex">\(b\)</span>)</strong> corresponds to electrical resistance.</li>
+<li><strong>Natural frequency (<span class="arithmatex">\(\omega_0\)</span>)</strong> depends on inductance and capacitance.</li>
+<li><strong>Driving force (<span class="arithmatex">\(A \cos(\omega t)\)</span>)</strong> represents an AC voltage source.  </li>
+<li>Understanding this analogy helps in designing <strong>filters, oscillators, and signal-processing devices</strong>.  </li>
+</ul>
+<h3 id="4-human-movement-and-biomechanics">4. Human Movement and Biomechanics</h3>
+<ul>
+<li><strong>Example:</strong> The human gait involves periodic motion controlled by muscles and external forces.  </li>
+<li><strong>Rehabilitation therapy</strong> and <strong>prosthetic limb design</strong> apply the principles of forced oscillations.  </li>
+</ul>
+<h3 id="conclusion"><strong>Conclusion</strong></h3>
+<p>The forced damped pendulum isn’t just a theoretical concept—it plays a vital role in <strong>engineering, biomechanics, and energy systems</strong>. Understanding these dynamics allows us to improve <strong>stability, efficiency, and safety</strong> in various real-world applications. 🚀</p>
+<h1 id="implementation-simulating-the-forced-damped-pendulum">Implementation: Simulating the Forced Damped Pendulum</h1>
+<p>We implement a numerical simulation of the <strong>forced damped pendulum</strong> using Python. The motion is governed by:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin\theta = A \cos(\omega t)
+\]</div>
+<p>where:
+- <span class="arithmatex">\(b\)</span> is the damping coefficient,
+- <span class="arithmatex">\(A \cos(\omega t)\)</span> is the external driving force,
+- <span class="arithmatex">\(g/L\)</span> represents the natural oscillation frequency.</p>
+<h3 id="1-numerical-simulation-runge-kutta-method">1. <strong>Numerical Simulation (Runge-Kutta Method)</strong></h3>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Define the differential equation
+def pendulum(t, state, b, A, omega, g, L):
+    theta, omega_dot = state
+    dtheta_dt = omega_dot
+    domega_dt = -b * omega_dot - (g / L) * np.sin(theta) + A * np.cos(omega * t)
+    return [dtheta_dt, domega_dt]
+
+# Parameters
+b = 0.2   # Damping coefficient
+A = 1.2   # Driving force amplitude
+omega = 2.0  # Driving frequency
+g = 9.81  # Gravity
+L = 1.0   # Pendulum length
+theta0 = 0.2  # Initial angle
+omega0 = 0.0  # Initial angular velocity
+t_span = (0, 50)  # Time interval
+t_eval = np.linspace(*t_span, 1000)
+
+# Solve ODE using Runge-Kutta method
+sol = solve_ivp(pendulum, t_span, [theta0, omega0], args=(b, A, omega, g, L), t_eval=t_eval)
+
+# Plot the pendulum's motion over time
+plt.figure(figsize=(10, 5))
+plt.plot(sol.t, sol.y[0], label="Angle (θ)")
+plt.plot(sol.t, sol.y[1], label="Angular Velocity (ω)")
+plt.xlabel("Time (s)")
+plt.ylabel("State Variables")
+plt.title("Forced Damped Pendulum Motion")
+plt.legend()
+plt.grid()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<h3 id="2-phase-space-diagram">2. <strong>Phase Space Diagram</strong></h3>
+<p>The phase space plot shows how the system evolves over time, highlighting periodic or chaotic motion.</p>
+<pre><code class="language-python">plt.figure(figsize=(6, 6))
+plt.plot(sol.y[0], sol.y[1], color='red')
+plt.xlabel("Angle (θ)")
+plt.ylabel("Angular Velocity (ω)")
+plt.title("Phase Space Diagram")
+plt.grid()
+plt.show()
+</code></pre>
+<h3 id="3-poincare-section-chaos-analysis">3. <strong>Poincaré Section (Chaos Analysis)</strong></h3>
+<p>A Poincaré section helps visualize transitions from regular to chaotic behavior by plotting states at fixed time intervals.</p>
+<pre><code class="language-python">times = np.arange(0, 50, 2*np.pi/omega)  # Strobe at the driving frequency
+theta_poincare = np.interp(times, sol.t, sol.y[0])
+omega_poincare = np.interp(times, sol.t, sol.y[1])
+
+plt.figure(figsize=(6, 6))
+plt.scatter(theta_poincare, omega_poincare, color='blue', s=5)
+plt.xlabel("Angle (θ)")
+plt.ylabel("Angular Velocity (ω)")
+plt.title("Poincaré Section")
+plt.grid()
+plt.show()
+</code></pre>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
