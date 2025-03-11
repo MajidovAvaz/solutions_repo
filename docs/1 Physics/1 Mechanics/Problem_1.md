@@ -115,7 +115,7 @@ def projectile_range(v0, g=9.81):
 # Example usage:
 projectile_range(v0=20)
 ```
-
+![alt text](image.png)
 ### 2. Visualization
 - The plot generated shows how the range varies with the launch angle.
 - The maximum range occurs at $45^\circ$.
