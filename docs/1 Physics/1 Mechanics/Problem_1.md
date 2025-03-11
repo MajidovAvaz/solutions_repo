@@ -6,12 +6,18 @@ Task 1. Theoretical Foundation:
 ## 1. Theoretical Foundation
 Projectile motion equations:
 - Horizontal: 
-$$ x = v_0 \cos(\theta) t $$
+$$ 
+x = v_0 \cos(\theta) t 
+$$
 - Vertical: 
-$$ y = v_0 \sin(\theta) t - \frac{1}{2} g t^2 $$
+$$ 
+y = v_0 \sin(\theta) t - \frac{1}{2} g t^2 
+$$
 
 Range formula:
-\[ R = \frac{v_0^2 \sin(2\theta)}{g} \]
+$$ 
+R = \frac{v_0^2 \sin(2\theta)}{g} 
+$$
 
 ## 2. Python Simulation
 ```python
@@ -37,11 +43,19 @@ plt.show()
 Task 2. Analysis of the Range:
 ## 1. Theoretical Foundation
 Projectile motion equations:
-- Horizontal: \( x = v_0 \cos(\theta) t \)
-- Vertical: \( y = v_0 \sin(\theta) t - \frac{1}{2} g t^2 \)
+- Horizontal: 
+$$ 
+x = v_0 \cos(\theta) t 
+$$
+- Vertical: 
+$$
+ y = v_0 \sin(\theta) t - \frac{1}{2} g t^2 
+$$
 
 Range formula:
-\[ R = \frac{v_0^2 \sin(2\theta)}{g} \]
+$$ 
+R = \frac{v_0^2 \sin(2\theta)}{g} 
+$$
 
 ## 2. Python Simulation
 ```python
@@ -87,11 +101,19 @@ plt.show()
 Task 3. Practical Applications:
 ## 1. Theoretical Foundation
 Projectile motion equations:
-- Horizontal: \( x = v_0 \cos(\theta) t \)
-- Vertical: \( y = v_0 \sin(\theta) t - \frac{1}{2} g t^2 \)
+- Horizontal: 
+$$ 
+x = v_0 \cos(\theta) t
+$$
+- Vertical: 
+$$ 
+y = v_0 \sin(\theta) t - \frac{1}{2} g t^2 
+$$
 
 Range formula:
-\[ R = \frac{v_0^2 \sin(2\theta)}{g} \]
+$$
+ R = \frac{v_0^2 \sin(2\theta)}{g} 
+ $$
 
 ## 2. Python Simulation
 ```python
