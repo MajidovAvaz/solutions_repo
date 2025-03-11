@@ -27,7 +27,7 @@ $$
  T = \frac{2 v_0 \sin(\theta)}{g}
 $$
 
-The range $ R $ is the horizontal distance covered:
+The range $R$ is the horizontal distance covered:
 
 $$
  R = v_0 \cos(\theta) T = \frac{v_0^2 \sin(2\theta)}{g}
