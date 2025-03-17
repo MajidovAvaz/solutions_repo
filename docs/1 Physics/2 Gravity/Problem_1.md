@@ -184,5 +184,3 @@ plt.show()
 
 ![alt text](image.png)
 
-## **Explanation of the Code**
-
