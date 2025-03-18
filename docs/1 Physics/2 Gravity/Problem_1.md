@@ -140,7 +140,7 @@ which matches Mars’ actual orbit.
 - **Space Missions**: NASA and ESA use it for interplanetary travel.
 - **Binary Star Systems**: Helps determine masses and distances of stars.
 
-Kepler’s Third Law provides a **powerful framework** to study celestial mechanics, from **our Moon’s motion** to **planetary orbits** and even **distant exoplanets**. 🚀🌍✨
+Kepler’s Third Law provides a **powerful framework** to study celestial mechanics, from **our Moon’s motion** to **planetary orbits** and even **distant exoplanets**.
 
 
 
