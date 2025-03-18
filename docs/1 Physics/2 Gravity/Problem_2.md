@@ -1,7 +1,7 @@
 # Problem 2
-# **Cosmic Velocities: Definitions and Meanings**
+# **Task 1. Cosmic Velocities: Definitions and Meanings**
 
-## **Task 1. First Cosmic Velocity (Orbital Velocity)**
+## **1. First Cosmic Velocity (Orbital Velocity)**
 
 The **first cosmic velocity** is the **minimum velocity** required for an object to stay in a **stable circular orbit** around a celestial body. It is given by:
 
@@ -50,8 +50,109 @@ where:
 ## **4. Summary of Cosmic Velocities**
 | Cosmic Velocity | Meaning | Formula | Example (Earth) |
 |-----------------|---------|---------|----------------|
-| **First ($v_1$)** | Orbiting velocity | $ \sqrt{G M / R} $ | **7.9 km/s** |
-| **Second ($v_2$)** | Escape velocity | $ \sqrt{2 G M / R} $ | **11.2 km/s** |
-| **Third ($v_3$)** | Solar escape velocity | $ \sqrt{v_2^2 + v_{\text{orb}}^2} $ | **42.1 km/s** |
+| **First ($v_1$)** | Orbiting velocity | $\sqrt{G M / R}$ | **7.9 km/s** |
+| **Second ($v_2$)** | Escape velocity | $\sqrt{2 G M / R}$ | **11.2 km/s** |
+| **Third ($v_3$)** | Solar escape velocity | $\sqrt{v_2^2 + v_{\text{orb}}^2}$ | **42.1 km/s** |
 
-🚀 **These velocities define space travel, satellite movement, and interstellar exploration!**
+
+
+
+# **Task 2. Mathematical Analysis of Cosmic Velocities**
+
+## **1. First Cosmic Velocity ($v_1$) – Orbital Velocity**
+The first cosmic velocity is derived from the **centripetal force equation**:
+
+$$
+F_c = \frac{m v_1^2}{R}
+$$
+
+which must balance the **gravitational force**:
+
+$$
+F_g = \frac{G M m}{R^2}
+$$
+
+Setting $F_c = F_g$:
+
+$$
+\frac{m v_1^2}{R} = \frac{G M m}{R^2}
+$$
+
+Canceling **$m$** and solving for $v_1$:
+
+$$
+v_1 = \sqrt{\frac{G M}{R}}
+$$
+
+### **Parameters Affecting $v_1$**
+- **Mass ($M$) of the celestial body**: Higher mass increases velocity.
+- **Radius ($R$) of orbit**: Higher altitude lowers velocity.
+
+🔹 **Example**: A satellite in **low Earth orbit (~300 km)** moves at **7.9 km/s**.
+
+---
+
+## **2. Second Cosmic Velocity ($v_2$) – Escape Velocity**
+Derived from **energy conservation**:
+
+- **Kinetic Energy at launch**:  
+  $$
+  KE = \frac{1}{2} m v_2^2
+  $$
+- **Gravitational Potential Energy**:  
+  $$
+  PE = -\frac{G M m}{R}
+  $$
+
+For escape, total energy must be **zero**:
+
+$$
+\frac{1}{2} m v_2^2 - \frac{G M m}{R} = 0
+$$
+
+Solving for $v_2$:
+
+$$
+v_2 = \sqrt{\frac{2 G M}{R}}
+$$
+
+### **Parameters Affecting $v_2$**
+- **Mass ($M$)**: Higher mass increases escape velocity.
+- **Radius ($R$)**: A larger radius decreases escape velocity.
+
+🔹 **Example**: **Earth’s escape velocity** = **11.2 km/s**.
+
+---
+
+## **3. Third Cosmic Velocity ($v_3$) – Solar System Escape Velocity**
+To **leave the Solar System**, an object must escape **both Earth's gravity and the Sun's gravity**. The total velocity required is:
+
+$$
+v_3 = \sqrt{v_2^2 + v_{\text{orb}}^2}
+$$
+
+where:
+- $v_2$ = **Earth’s escape velocity (11.2 km/s)**
+- $v_{\text{orb}}$ = **Earth’s orbital speed (29.8 km/s)**
+
+### **Parameters Affecting $v_3$**
+- **Sun’s gravity**: A stronger gravitational pull increases $v_3$.
+- **Initial position**: The farther from the Sun, the lower the required $v_3$.
+
+🔹 **Example**: **Voyager 1** achieved **~42.1 km/s** to escape the Solar System.
+
+---
+
+## **4. Summary of Velocity Dependence**
+| Velocity | Formula | Mass ($M$) | Radius ($R$) | Orbital Speed ($v_{\text{orb}}$) |
+|----------|---------|------------|--------------|-----------------|
+| **First ($v_1$)** | $\sqrt{G M / R}$ | 🔼 Increases | 🔽 Decreases | ❌ Not required |
+| **Second ($v_2$)** | $\sqrt{2 G M / R}$ | 🔼 Increases | 🔽 Decreases | ❌ Not required |
+| **Third ($v_3$)** | $\sqrt{v_2^2 + v_{\text{orb}}^2}$ | 🔼 Increases | 🔽 Decreases | 🔼 Increases |
+
+---
+
+
+
+
+
