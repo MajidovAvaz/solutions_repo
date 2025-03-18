@@ -155,4 +155,100 @@ where:
 
 
 
+# **Task 3. Calculation and Visualization of Cosmic Velocities for Different Planets**
+
+## **1. Introduction**
+The first, second, and third cosmic velocities depend on the mass and radius of celestial bodies. We calculate these velocities for Earth, Mars, and Jupiter and visualize the differences.
+
+---
+
+## **2. Formulas for Cosmic Velocities**
+Using the universal gravitational constant:
+
+$$
+G = 6.674 \times 10^{-11} \, \text{m}^3\text{kg}^{-1}\text{s}^{-2}
+$$
+
+- **First Cosmic Velocity (Orbital Velocity):**
+  $$
+  v_1 = \sqrt{\frac{G M}{R}}
+  $$
+
+- **Second Cosmic Velocity (Escape Velocity):**
+  $$
+  v_2 = \sqrt{\frac{2 G M}{R}}
+  $$
+
+- **Third Cosmic Velocity (Solar System Escape):**
+  $$
+  v_3 = \sqrt{v_2^2 + v_{\text{orb}}^2}
+  $$
+
+where:
+- $M$ = mass of the celestial body,
+- $R$ = radius of the celestial body,
+- $v_{\text{orb}}$ = orbital velocity of the planet around the Sun.
+
+---
+
+## **3. Python Code for Calculations and Visualization**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.674e-11  # Gravitational constant (m³/kg/s²)
+
+# Data for Earth, Mars, and Jupiter (mass in kg, radius in m, orbital velocity in m/s)
+planets = {
+    "Earth":  {"M": 5.972e24, "R": 6.371e6, "v_orb": 2.978e4},
+    "Mars":   {"M": 6.417e23, "R": 3.389e6, "v_orb": 2.41e4},
+    "Jupiter":{"M": 1.898e27, "R": 6.9911e7, "v_orb": 1.307e4},
+}
+
+# Calculate velocities
+velocities = {}
+for planet, data in planets.items():
+    M, R, v_orb = data["M"], data["R"], data["v_orb"]
+    v1 = np.sqrt(G * M / R)  # First cosmic velocity
+    v2 = np.sqrt(2 * G * M / R)  # Second cosmic velocity
+    v3 = np.sqrt(v2**2 + v_orb**2)  # Third cosmic velocity
+    velocities[planet] = [v1, v2, v3]
+
+# Convert to km/s
+for planet, v in velocities.items():
+    velocities[planet] = [round(v_i / 1000, 2) for v_i in v]
+
+# Print results
+print("Cosmic Velocities (km/s):")
+for planet, v in velocities.items():
+    print(f"{planet}: v1 = {v[0]} km/s, v2 = {v[1]} km/s, v3 = {v[2]} km/s")
+
+# Visualization
+labels = ["First Cosmic (v1)", "Second Cosmic (v2)", "Third Cosmic (v3)"]
+x = np.arange(len(labels))
+width = 0.25
+
+fig, ax = plt.subplots()
+for i, planet in enumerate(planets.keys()):
+    ax.bar(x + i * width, velocities[planet], width, label=planet)
+
+ax.set_xlabel("Cosmic Velocity Type")
+ax.set_ylabel("Velocity (km/s)")
+ax.set_title("Cosmic Velocities for Earth, Mars, and Jupiter")
+ax.set_xticks(x + width)
+ax.set_xticklabels(labels)
+ax.legend()
+plt.show()
+```
+Cosmic Velocities (km/s):
+Earth: v1 = 7.91 km/s, v2 = 11.19 km/s, v3 = 31.81 km/s
+Mars: v1 = 3.55 km/s, v2 = 5.03 km/s, v3 = 24.62 km/s
+Jupiter: v1 = 42.57 km/s, v2 = 60.2 km/s, v3 = 61.6 km/s
+
+![alt text](image-1.png)
+
+
+
 
