@@ -172,6 +172,201 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-3">Problem 3</h1>
+<h1 id="task-1-analysis-of-payload-trajectories-near-earth"><strong>Task 1. Analysis of Payload Trajectories Near Earth</strong></h1>
+<h2 id="1-types-of-trajectories"><strong>1. Types of Trajectories</strong></h2>
+<p>When a payload is released from a moving rocket, its path depends on <strong>initial velocity (<span class="arithmatex">\(v\)</span>)</strong> and <strong>gravitational influence</strong>. The possible trajectories include:</p>
+<h3 id="11-elliptical-orbit-v-v_2"><strong>1.1 Elliptical Orbit (<span class="arithmatex">\(v &lt; v_2\)</span>)</strong></h3>
+<ul>
+<li>If the payload’s velocity is <strong>below escape velocity</strong> (<span class="arithmatex">\(v_2 = 11.2\)</span> km/s for Earth), it follows a <strong>closed elliptical orbit</strong>.</li>
+<li>If released at low altitude, it may <strong>eventually re-enter Earth's atmosphere</strong> due to air drag.</li>
+<li>Example: <strong>Satellites in Low Earth Orbit (LEO).</strong></li>
+</ul>
+<h3 id="12-parabolic-escape-v-v_2"><strong>1.2 Parabolic Escape (<span class="arithmatex">\(v = v_2\)</span>)</strong></h3>
+<ul>
+<li>If released <strong>exactly at escape velocity</strong>, the payload follows a <strong>parabolic trajectory</strong> and never returns to Earth.</li>
+<li>The payload moves infinitely far but slows asymptotically to zero velocity.</li>
+<li>Example: <strong>Theoretical minimum velocity for deep space travel.</strong></li>
+</ul>
+<h3 id="13-hyperbolic-escape-v-v_2"><strong>1.3 Hyperbolic Escape (<span class="arithmatex">\(v &gt; v_2\)</span>)</strong></h3>
+<ul>
+<li>If released <strong>above escape velocity</strong>, it follows a <strong>hyperbolic trajectory</strong> and escapes Earth’s gravity permanently.</li>
+<li>The excess velocity (<span class="arithmatex">\(v &gt; v_2\)</span>) determines the spacecraft’s future motion.</li>
+<li>Example: <strong>Voyager probes leaving the solar system.</strong></li>
+</ul>
+<hr/>
+<h2 id="2-governing-equations"><strong>2. Governing Equations</strong></h2>
+<p>Using Newton’s Law of Gravitation and Energy Conservation:</p>
+<ol>
+<li><strong>Total Energy (<span class="arithmatex">\(E\)</span>) determines trajectory type:</strong>
+   $$
+   E = \frac{1}{2} m v^2 - \frac{G M m}{r}
+   $$</li>
+<li><span class="arithmatex">\(E &lt; 0\)</span> → Elliptical Orbit  </li>
+<li><span class="arithmatex">\(E = 0\)</span> → Parabolic Escape  </li>
+<li>
+<p><span class="arithmatex">\(E &gt; 0\)</span> → Hyperbolic Escape  </p>
+</li>
+<li>
+<p><strong>Orbital Equation (for conic sections):</strong>
+   $$
+   r(\theta) = \frac{p}{1 + e \cos\theta}
+   $$</p>
+</li>
+<li><span class="arithmatex">\(e &lt; 1\)</span> → Ellipse  </li>
+<li><span class="arithmatex">\(e = 1\)</span> → Parabola  </li>
+<li><span class="arithmatex">\(e &gt; 1\)</span> → Hyperbola  </li>
+</ol>
+<hr/>
+<h2 id="3-real-world-applications"><strong>3. Real-World Applications</strong></h2>
+<ul>
+<li><strong>Satellite Deployment</strong>: Ensuring correct velocity for stable orbits.</li>
+<li><strong>Interplanetary Travel</strong>: Using gravity assists for hyperbolic escapes.</li>
+<li><strong>Re-Entry Scenarios</strong>: Predicting payload descent for controlled landings.</li>
+</ul>
+<h1 id="task-2-numerical-analysis-of-payload-trajectory"><strong>Task 2. Numerical Analysis of Payload Trajectory</strong></h1>
+<h2 id="1-problem-overview"><strong>1. Problem Overview</strong></h2>
+<p>To determine the trajectory of a payload released near Earth, we use <strong>Newton's Second Law</strong> and <strong>Gravitational Force</strong> to compute its motion numerically. The motion is governed by:</p>
+<div class="arithmatex">\[
+\mathbf{F} = m \mathbf{a}
+\]</div>
+<p>where the gravitational force is:</p>
+<div class="arithmatex">\[
+\mathbf{F}_g = -\frac{G M m}{r^2} \hat{r}
+\]</div>
+<p>We solve this using <strong>numerical integration methods</strong> like the <strong>Runge-Kutta (RK4) method</strong>.</p>
+<hr/>
+<h2 id="2-python-simulation"><strong>2. Python Simulation</strong></h2>
+<p>The following script computes and visualizes the payload’s trajectory based on initial conditions.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Constants
+G = 6.67430e-11  # Gravitational constant (m³/kg/s²)
+M = 5.972e24     # Mass of Earth (kg)
+R_Earth = 6.371e6  # Radius of Earth (m)
+
+# Function to compute acceleration due to gravity
+def equations(t, state):
+    x, y, vx, vy = state
+    r = np.sqrt(x**2 + y**2)
+    ax = -G * M * x / r**3
+    ay = -G * M * y / r**3
+    return [vx, vy, ax, ay]
+
+# Initial conditions
+altitude = 400e3  # 400 km above Earth
+v_initial = 7800  # Initial velocity (m/s)
+angle = np.radians(45)  # Release angle
+
+x0, y0 = R_Earth + altitude, 0
+vx0, vy0 = v_initial * np.cos(angle), v_initial * np.sin(angle)
+
+# Time span and solving the equations
+t_span = (0, 6000)  # Simulate for 6000 seconds
+initial_state = [x0, y0, vx0, vy0]
+
+sol = solve_ivp(equations, t_span, initial_state, method='RK45', t_eval=np.linspace(0, 6000, 1000))
+
+# Plot the trajectory
+plt.figure(figsize=(8, 8))
+plt.plot(sol.y[0], sol.y[1], label="Payload Trajectory")
+circle = plt.Circle((0, 0), R_Earth, color='blue', alpha=0.3, label="Earth")
+plt.gca().add_patch(circle)
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Numerical Simulation of Payload Trajectory")
+plt.legend()
+plt.axis("equal")
+plt.grid()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<h1 id="task-3-relation-to-orbital-insertion-reentry-and-escape"><strong>Task 3. Relation to Orbital Insertion, Reentry, and Escape</strong></h1>
+<h2 id="1-orbital-insertion"><strong>1. Orbital Insertion</strong></h2>
+<ul>
+<li>If a payload is released with a velocity close to the <strong>orbital velocity</strong>:  </li>
+</ul>
+<p>$$
+  v_{orbital} = \sqrt{\frac{G M}{r}}
+  $$  </p>
+<p>it will enter a stable orbit around Earth.<br/>
+- A velocity <strong>slightly below</strong> this value results in an <strong>elliptical orbit</strong>.<br/>
+- A velocity <strong>slightly above</strong> can push the payload into a <strong>higher orbit</strong>.  </p>
+<h2 id="2-reentry-scenarios"><strong>2. Reentry Scenarios</strong></h2>
+<ul>
+<li>If the velocity is <strong>too low</strong>, Earth's gravity dominates, pulling the payload back, leading to <strong>atmospheric reentry</strong>.  </li>
+<li>The trajectory follows a <strong>parabolic or elliptical</strong> path before descent.  </li>
+<li>Atmospheric drag and heat buildup occur, requiring a <strong>heat shield for protection</strong>.  </li>
+</ul>
+<h2 id="3-escape-scenarios"><strong>3. Escape Scenarios</strong></h2>
+<ul>
+<li>If the payload exceeds <strong>escape velocity</strong>:  </li>
+</ul>
+<p>$$
+  v_{escape} = \sqrt{\frac{2 G M}{r}}
+  $$  </p>
+<p>it will break free from Earth's gravitational influence.<br/>
+- This results in a <strong>hyperbolic trajectory</strong>, allowing for interplanetary travel.<br/>
+- Space probes like <strong>Voyager 1 &amp; 2</strong> utilized escape velocity to leave the Solar System.  </p>
+<h1 id="task-4-simulation-of-payload-motion-under-earths-gravity"><strong>Task 4. Simulation of Payload Motion Under Earth's Gravity</strong></h1>
+<h2 id="objective"><strong>Objective</strong></h2>
+<p>Develop a computational tool to simulate and visualize a payload’s motion after being released from a moving rocket. The tool accounts for:<br/>
+- Earth's gravitational force.<br/>
+- Initial velocity and direction.<br/>
+- Different possible trajectories (elliptical, parabolic, hyperbolic).  </p>
+<h2 id="python-simulation-code"><strong>Python Simulation Code</strong></h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Constants
+G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
+M = 5.972e24  # Mass of Earth (kg)
+R = 6371e3  # Radius of Earth (m)
+
+# Function defining the equations of motion
+def equations(t, state):
+    x, y, vx, vy = state
+    r = np.sqrt(x**2 + y**2)
+    ax = -G * M * x / r**3
+    ay = -G * M * y / r**3
+    return [vx, vy, ax, ay]
+
+# Initial conditions
+altitude = 500e3  # 500 km above Earth
+initial_speed = 7800  # m/s (approximate low Earth orbit velocity)
+angle = np.radians(45)  # Launch angle
+
+x0 = R + altitude
+y0 = 0
+vx0 = initial_speed * np.cos(angle)
+vy0 = initial_speed * np.sin(angle)
+
+# Time span
+t_span = (0, 10000)  # Simulate for 10,000 seconds
+t_eval = np.linspace(*t_span, num=500)  # Time steps
+
+# Solve the equations of motion
+solution = solve_ivp(equations, t_span, [x0, y0, vx0, vy0], t_eval=t_eval, method='RK45')
+
+# Extract results
+x, y = solution.y[0], solution.y[1]
+
+# Plot trajectory
+plt.figure(figsize=(8, 8))
+earth = plt.Circle((0, 0), R, color='blue', alpha=0.3, label="Earth")
+plt.gca().add_patch(earth)
+plt.plot(x, y, label="Payload Trajectory", color='red')
+plt.xlabel("X Position (m)")
+plt.ylabel("Y Position (m)")
+plt.title("Payload Motion Under Earth's Gravity")
+plt.legend()
+plt.axis("equal")
+plt.grid()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-3.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
