@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payload Trajectory Simulation</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        canvas { background: black; display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <h2>🚀 Payload Trajectory Simulation (Near Earth) 🌍</h2>
+    <canvas id="canvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+    const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+// Canvas size
+canvas.width = 800;
+canvas.height = 800;
+
+// Constants
+const G = 6.67430e-11;  // Gravitational constant
+const M = 5.972e24;     // Mass of Earth (kg)
+const R_Earth = 6371e3; // Radius of Earth (m)
+const scale = 5e-6;     // Scale factor for visualization
+
+// Initial conditions
+let altitude = 400e3;  // 400 km above Earth
+let v_initial = 7800;  // Initial velocity (m/s)
+let angle = 45;        // Release angle in degrees
+
+// Convert angle to radians
+let theta = angle * (Math.PI / 180);
+let x = 0;
+let y = R_Earth + altitude;
+let vx = v_initial * Math.cos(theta);
+let vy = v_initial * Math.sin(theta);
+
+// Simulation parameters
+const dt = 1;  // Time step (seconds)
+
+// Update function (Euler integration)
+function update() {
+    let r = Math.sqrt(x * x + y * y);
+    let a = (-G * M) / (r * r);
+    
+    let ax = a * (x / r);
+    let ay = a * (y / r);
+
+    // Update velocity
+    vx += ax * dt;
+    vy += ay * dt;
+
+    // Update position
+    x += vx * dt;
+    y += vy * dt;
+}
+
+// Draw function
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw Earth
+    ctx.fillStyle = "blue";
+    ctx.beginPath();
+    ctx.arc(canvas.width / 2, canvas.height / 2, R_Earth * scale, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Convert real coordinates to canvas coordinates
+    let screenX = canvas.width / 2 + x * scale;
+    let screenY = canvas.height / 2 - y * scale;
+
+    // Draw payload
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(screenX, screenY, 3, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// Main animation loop
+function animate() {
+    update();
+    draw();
+    requestAnimationFrame(animate);
+}
+
+// Start the simulation
+animate();
+
+</script>
