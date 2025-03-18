@@ -172,8 +172,8 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
-<h1 id="cosmic-velocities-definitions-and-meanings"><strong>Cosmic Velocities: Definitions and Meanings</strong></h1>
-<h2 id="task-1-first-cosmic-velocity-orbital-velocity"><strong>Task 1. First Cosmic Velocity (Orbital Velocity)</strong></h2>
+<h1 id="task-1-cosmic-velocities-definitions-and-meanings"><strong>Task 1. Cosmic Velocities: Definitions and Meanings</strong></h1>
+<h2 id="1-first-cosmic-velocity-orbital-velocity"><strong>1. First Cosmic Velocity (Orbital Velocity)</strong></h2>
 <p>The <strong>first cosmic velocity</strong> is the <strong>minimum velocity</strong> required for an object to stay in a <strong>stable circular orbit</strong> around a celestial body. It is given by:</p>
 <div class="arithmatex">\[
 v_1 = \sqrt{\frac{G M}{R}}
@@ -221,24 +221,126 @@ v_3 = \sqrt{v_2^2 + v_{\text{orb}}^2}
 <tr>
 <td><strong>First (<span class="arithmatex">\(v_1\)</span>)</strong></td>
 <td>Orbiting velocity</td>
-<td>$ \sqrt{G M / R} $</td>
+<td><span class="arithmatex">\(\sqrt{G M / R}\)</span></td>
 <td><strong>7.9 km/s</strong></td>
 </tr>
 <tr>
 <td><strong>Second (<span class="arithmatex">\(v_2\)</span>)</strong></td>
 <td>Escape velocity</td>
-<td>$ \sqrt{2 G M / R} $</td>
+<td><span class="arithmatex">\(\sqrt{2 G M / R}\)</span></td>
 <td><strong>11.2 km/s</strong></td>
 </tr>
 <tr>
 <td><strong>Third (<span class="arithmatex">\(v_3\)</span>)</strong></td>
 <td>Solar escape velocity</td>
-<td>$ \sqrt{v_2^2 + v_{\text{orb}}^2} $</td>
+<td><span class="arithmatex">\(\sqrt{v_2^2 + v_{\text{orb}}^2}\)</span></td>
 <td><strong>42.1 km/s</strong></td>
 </tr>
 </tbody>
 </table>
-<p>🚀 <strong>These velocities define space travel, satellite movement, and interstellar exploration!</strong></p>
+<h1 id="task-2-mathematical-analysis-of-cosmic-velocities"><strong>Task 2. Mathematical Analysis of Cosmic Velocities</strong></h1>
+<h2 id="1-first-cosmic-velocity-v_1-orbital-velocity"><strong>1. First Cosmic Velocity (<span class="arithmatex">\(v_1\)</span>) – Orbital Velocity</strong></h2>
+<p>The first cosmic velocity is derived from the <strong>centripetal force equation</strong>:</p>
+<div class="arithmatex">\[
+F_c = \frac{m v_1^2}{R}
+\]</div>
+<p>which must balance the <strong>gravitational force</strong>:</p>
+<div class="arithmatex">\[
+F_g = \frac{G M m}{R^2}
+\]</div>
+<p>Setting <span class="arithmatex">\(F_c = F_g\)</span>:</p>
+<div class="arithmatex">\[
+\frac{m v_1^2}{R} = \frac{G M m}{R^2}
+\]</div>
+<p>Canceling <strong><span class="arithmatex">\(m\)</span></strong> and solving for <span class="arithmatex">\(v_1\)</span>:</p>
+<div class="arithmatex">\[
+v_1 = \sqrt{\frac{G M}{R}}
+\]</div>
+<h3 id="parameters-affecting-v_1"><strong>Parameters Affecting <span class="arithmatex">\(v_1\)</span></strong></h3>
+<ul>
+<li><strong>Mass (<span class="arithmatex">\(M\)</span>) of the celestial body</strong>: Higher mass increases velocity.</li>
+<li><strong>Radius (<span class="arithmatex">\(R\)</span>) of orbit</strong>: Higher altitude lowers velocity.</li>
+</ul>
+<p>🔹 <strong>Example</strong>: A satellite in <strong>low Earth orbit (~300 km)</strong> moves at <strong>7.9 km/s</strong>.</p>
+<hr/>
+<h2 id="2-second-cosmic-velocity-v_2-escape-velocity"><strong>2. Second Cosmic Velocity (<span class="arithmatex">\(v_2\)</span>) – Escape Velocity</strong></h2>
+<p>Derived from <strong>energy conservation</strong>:</p>
+<ul>
+<li><strong>Kinetic Energy at launch</strong>:<br/>
+  $$
+  KE = \frac{1}{2} m v_2^2
+  $$</li>
+<li><strong>Gravitational Potential Energy</strong>:<br/>
+  $$
+  PE = -\frac{G M m}{R}
+  $$</li>
+</ul>
+<p>For escape, total energy must be <strong>zero</strong>:</p>
+<div class="arithmatex">\[
+\frac{1}{2} m v_2^2 - \frac{G M m}{R} = 0
+\]</div>
+<p>Solving for <span class="arithmatex">\(v_2\)</span>:</p>
+<div class="arithmatex">\[
+v_2 = \sqrt{\frac{2 G M}{R}}
+\]</div>
+<h3 id="parameters-affecting-v_2"><strong>Parameters Affecting <span class="arithmatex">\(v_2\)</span></strong></h3>
+<ul>
+<li><strong>Mass (<span class="arithmatex">\(M\)</span>)</strong>: Higher mass increases escape velocity.</li>
+<li><strong>Radius (<span class="arithmatex">\(R\)</span>)</strong>: A larger radius decreases escape velocity.</li>
+</ul>
+<p>🔹 <strong>Example</strong>: <strong>Earth’s escape velocity</strong> = <strong>11.2 km/s</strong>.</p>
+<hr/>
+<h2 id="3-third-cosmic-velocity-v_3-solar-system-escape-velocity"><strong>3. Third Cosmic Velocity (<span class="arithmatex">\(v_3\)</span>) – Solar System Escape Velocity</strong></h2>
+<p>To <strong>leave the Solar System</strong>, an object must escape <strong>both Earth's gravity and the Sun's gravity</strong>. The total velocity required is:</p>
+<div class="arithmatex">\[
+v_3 = \sqrt{v_2^2 + v_{\text{orb}}^2}
+\]</div>
+<p>where:
+- <span class="arithmatex">\(v_2\)</span> = <strong>Earth’s escape velocity (11.2 km/s)</strong>
+- <span class="arithmatex">\(v_{\text{orb}}\)</span> = <strong>Earth’s orbital speed (29.8 km/s)</strong></p>
+<h3 id="parameters-affecting-v_3"><strong>Parameters Affecting <span class="arithmatex">\(v_3\)</span></strong></h3>
+<ul>
+<li><strong>Sun’s gravity</strong>: A stronger gravitational pull increases <span class="arithmatex">\(v_3\)</span>.</li>
+<li><strong>Initial position</strong>: The farther from the Sun, the lower the required <span class="arithmatex">\(v_3\)</span>.</li>
+</ul>
+<p>🔹 <strong>Example</strong>: <strong>Voyager 1</strong> achieved <strong>~42.1 km/s</strong> to escape the Solar System.</p>
+<hr/>
+<h2 id="4-summary-of-velocity-dependence"><strong>4. Summary of Velocity Dependence</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Velocity</th>
+<th>Formula</th>
+<th>Mass (<span class="arithmatex">\(M\)</span>)</th>
+<th>Radius (<span class="arithmatex">\(R\)</span>)</th>
+<th>Orbital Speed (<span class="arithmatex">\(v_{\text{orb}}\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>First (<span class="arithmatex">\(v_1\)</span>)</strong></td>
+<td><span class="arithmatex">\(\sqrt{G M / R}\)</span></td>
+<td>🔼 Increases</td>
+<td>🔽 Decreases</td>
+<td>❌ Not required</td>
+</tr>
+<tr>
+<td><strong>Second (<span class="arithmatex">\(v_2\)</span>)</strong></td>
+<td><span class="arithmatex">\(\sqrt{2 G M / R}\)</span></td>
+<td>🔼 Increases</td>
+<td>🔽 Decreases</td>
+<td>❌ Not required</td>
+</tr>
+<tr>
+<td><strong>Third (<span class="arithmatex">\(v_3\)</span>)</strong></td>
+<td><span class="arithmatex">\(\sqrt{v_2^2 + v_{\text{orb}}^2}\)</span></td>
+<td>🔼 Increases</td>
+<td>🔽 Decreases</td>
+<td>🔼 Increases</td>
+</tr>
+</tbody>
+</table>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
