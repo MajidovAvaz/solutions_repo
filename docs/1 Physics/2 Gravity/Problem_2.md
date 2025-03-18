@@ -243,9 +243,9 @@ ax.legend()
 plt.show()
 ```
 Cosmic Velocities (km/s):
-Earth: v1 = 7.91 km/s, v2 = 11.19 km/s, v3 = 31.81 km/s
-Mars: v1 = 3.55 km/s, v2 = 5.03 km/s, v3 = 24.62 km/s
-Jupiter: v1 = 42.57 km/s, v2 = 60.2 km/s, v3 = 61.6 km/s
+Earth: $v1 = 7.91 km/s$, $v2 = 11.19 km/s$, $v3 = 31.81 km/s$
+Mars: $v1 = 3.55 km/s$, $v2 = 5.03 km/s$, $v3 = 24.62 km/s$
+Jupiter: $v1 = 42.57 km/s$, $v2 = 60.2 km/s$, $v3 = 61.6 km/s$
 
 ![alt text](image-1.png)
 
