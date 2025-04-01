@@ -9,10 +9,10 @@ $$
 $$
 
 where:
-- $A$ is the wave amplitude
-- $k = \frac{2\pi}{\lambda}$ is the wave number
-- $\omega$ is the angular frequency
-- $r_i$ is the distance from the $i^{th}$ source to $(x,y)$
+- $A$ is the wave amplitude,
+- $k = \frac{2\pi}{\lambda}$ is the wave number,
+- $\omega$ is the angular frequency,
+- $r_i$ is the distance from the $i^{th}$ source to $(x,y)$.
 
 ---
 
