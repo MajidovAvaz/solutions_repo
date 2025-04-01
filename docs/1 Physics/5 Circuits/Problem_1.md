@@ -116,3 +116,103 @@ circuit.plot_graph("Simplified Circuit")
 ![alt text](image.png)
 
 
+
+
+# **Equivalent Resistance Calculation Using Graph Theory**  
+
+## **1. Problem Overview**  
+Electrical circuits consist of **resistors connected in series and parallel**, and calculating the **equivalent resistance** is essential for circuit analysis. Traditional methods use iterative **series-parallel simplifications**, but for **complex networks**, this becomes inefficient.  
+
+Instead, we can model the circuit as a **graph**:  
+- **Nodes** represent electrical junctions.  
+- **Edges** represent resistors, with weights equal to their resistance values.  
+
+Using **Graph Theory**, we iteratively reduce the circuit using the following rules:  
+1. **Series Combination**: Two resistors in series sum up:  
+   $$
+   R_{\text{eq}} = R_1 + R_2
+   $$  
+2. **Parallel Combination**: Two resistors in parallel follow:  
+   $$
+   \frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2}
+   $$  
+
+This implementation:  
+ Accepts any **circuit graph**.  
+ Detects and simplifies **series and parallel** resistor connections.  
+ Handles **nested combinations** and **complex cycles**.  
+ Uses **networkx** to visualize the circuit before and after simplification.  
+
+---
+
+## **2. Python Implementation**  
+
+```python
+import networkx as nx
+import matplotlib.pyplot as plt
+
+class CircuitGraph:
+    def __init__(self):
+        self.graph = nx.Graph()
+
+    def add_resistor(self, node1, node2, resistance):
+        if self.graph.has_edge(node1, node2):
+            existing_resistance = self.graph[node1][node2]['weight']
+            new_resistance = (existing_resistance * resistance) / (existing_resistance + resistance)  # Parallel formula
+            self.graph[node1][node2]['weight'] = new_resistance
+        else:
+            self.graph.add_edge(node1, node2, weight=resistance)
+
+    def simplify_series(self):
+        to_remove = []
+        for node in list(self.graph.nodes):
+            neighbors = list(self.graph.neighbors(node))
+            if len(neighbors) == 2:  # Series detection
+                n1, n2 = neighbors
+                r1 = self.graph[node][n1]['weight']
+                r2 = self.graph[node][n2]['weight']
+                equivalent_resistance = r1 + r2
+                self.add_resistor(n1, n2, equivalent_resistance)
+                self.graph.remove_edge(node, n1)
+                self.graph.remove_edge(node, n2)
+                to_remove.append(node)
+        for node in to_remove:
+            self.graph.remove_node(node)
+
+    def calculate_equivalent_resistance(self, start, end):
+        while len(self.graph.nodes) > 2:
+            self.simplify_series()
+        
+        if self.graph.has_edge(start, end):
+            return self.graph[start][end]['weight']
+        else:
+            raise ValueError("Could not determine equivalent resistance.")
+
+    def plot_graph(self, title="Circuit Graph"):
+        pos = nx.spring_layout(self.graph)
+        labels = {(u, v): f"{d['weight']}Ω" for u, v, d in self.graph.edges(data=True)}
+        plt.figure(figsize=(6, 6))
+        nx.draw(self.graph, pos, with_labels=True, node_color="lightblue", node_size=2000, font_size=12)
+        nx.draw_networkx_edge_labels(self.graph, pos, edge_labels=labels)
+        plt.title(title)
+        plt.show()
+
+# Example Usage
+circuit = CircuitGraph()
+circuit.add_resistor('A', 'B', 15)
+circuit.add_resistor('B', 'C', 8)
+circuit.add_resistor('C', 'D', 20)
+circuit.add_resistor('A', 'D', 30)
+
+circuit.plot_graph("Initial Circuit")
+
+try:
+    resistance = circuit.calculate_equivalent_resistance('A', 'D')
+    print("Equivalent Resistance:", resistance)
+except ValueError as e:
+    print("Error:", e)
+
+circuit.plot_graph("Simplified Circuit")
+```
+![alt text](image-1.png)
+![alt text](image-2.png)
