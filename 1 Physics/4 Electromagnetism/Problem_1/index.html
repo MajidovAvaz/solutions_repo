@@ -172,6 +172,68 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="equivalent-resistance-calculation-using-graph-theory"><strong>Equivalent Resistance Calculation Using Graph Theory</strong></h1>
+<h2 id="1-introduction"><strong>1. Introduction</strong></h2>
+<p>Calculating the equivalent resistance of an electrical circuit is crucial for circuit analysis. Traditional methods rely on identifying <strong>series</strong> and <strong>parallel</strong> resistor combinations, but these can become inefficient for complex circuits. <strong>Graph theory</strong> provides a structured approach by modeling the circuit as a graph where:
+- <strong>Nodes</strong> represent junctions in the circuit.
+- <strong>Edges</strong> represent resistors with weights corresponding to their resistance values.</p>
+<p>The algorithm iteratively simplifies the graph until a single equivalent resistance is obtained.</p>
+<hr/>
+<h2 id="2-algorithm-description"><strong>2. Algorithm Description</strong></h2>
+<p>The algorithm follows these steps:</p>
+<ol>
+<li><strong>Model the Circuit as a Graph:</strong></li>
+<li>Represent each junction as a node.</li>
+<li>
+<p>Represent each resistor as a weighted edge.</p>
+</li>
+<li>
+<p><strong>Detect Series Connections:</strong></p>
+</li>
+<li>If a node has exactly <strong>two connections</strong>, the resistors are in <strong>series</strong>.</li>
+<li>Replace the two resistors with an equivalent resistance:
+     $$ R_{eq} = R_1 + R_2 $$</li>
+<li>
+<p>Remove the intermediate node.</p>
+</li>
+<li>
+<p><strong>Detect Parallel Connections:</strong></p>
+</li>
+<li>If multiple resistors connect the <strong>same two nodes</strong>, they are in <strong>parallel</strong>.</li>
+<li>
+<p>Replace them with an equivalent resistance:
+     $$ \frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + ... + \frac{1}{R_n} $$</p>
+</li>
+<li>
+<p><strong>Iterate Until a Single Equivalent Resistance Remains:</strong></p>
+</li>
+<li>
+<p>Repeat the above steps until the graph is reduced to a <strong>single equivalent resistor</strong>.</p>
+</li>
+<li>
+<p><strong>Handle Nested Combinations:</strong></p>
+</li>
+<li>The algorithm processes simpler series/parallel groups first.</li>
+<li>Uses <strong>recursive</strong> or <strong>iterative graph traversal</strong> (e.g., Depth-First Search) to identify and reduce nested configurations.</li>
+</ol>
+<hr/>
+<h2 id="3-pseudocode"><strong>3. Pseudocode</strong></h2>
+<pre><code class="language-python">function calculate_equivalent_resistance(graph):
+    while graph has more than one node:
+        for each node in graph:
+            if node has exactly two connections:
+                # Series Reduction
+                R_eq = sum of series resistances
+                merge nodes and update graph
+
+        for each pair of nodes with multiple connections:
+            # Parallel Reduction
+            R_eq = (1 / sum of (1 / resistances))
+            replace parallel resistors with R_eq
+
+    return final equivalent resistance
+</code></pre>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
