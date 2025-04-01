@@ -67,6 +67,6 @@ plt.gca().set_aspect('equal')
 plt.legend()
 plt.show()
 ```
-
+![alt text](image.png)
 
 
