@@ -172,6 +172,93 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="measuring-earths-gravitational-acceleration-using-a-pendulum">Measuring Earth's Gravitational Acceleration Using a Pendulum</h1>
+<h2 id="1-theoretical-foundation"><strong>1. Theoretical Foundation</strong></h2>
+<p>A simple pendulum (of small amplitude) has a period given by:</p>
+<div class="arithmatex">\[
+T = 2\pi \sqrt{\frac{L}{g}}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(T\)</span> is the period (time for one complete oscillation),
+- <span class="arithmatex">\(L\)</span> is the length of the pendulum,
+- <span class="arithmatex">\(g\)</span> is the acceleration due to gravity.</p>
+<p>Rearranging the formula to solve for <span class="arithmatex">\(g\)</span>, we obtain:</p>
+<div class="arithmatex">\[
+g = \frac{4\pi^2 L}{T^2}
+\]</div>
+<p>This relation provides a straightforward method to measure <span class="arithmatex">\(g\)</span> by measuring <span class="arithmatex">\(L\)</span> and <span class="arithmatex">\(T\)</span>.</p>
+<hr/>
+<h2 id="2-simulation"><strong>2. Simulation</strong></h2>
+<p>The following Python code simulates the oscillations of a simple pendulum. It generates synthetic period data (with some random noise to mimic measurement errors) and then uses these periods to estimate <span class="arithmatex">\(g\)</span>.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Pendulum parameters
+L = 1.0         # Length in meters
+g_true = 9.81   # True gravitational acceleration (m/s²)
+T_true = 2 * np.pi * np.sqrt(L / g_true)  # Theoretical period
+
+# Generate simulated period data with noise (simulate multiple trials)
+num_trials = 100
+# Adding normal noise with 0.02 sec standard deviation to mimic experimental error
+measured_periods = T_true + np.random.normal(0, 0.02, num_trials)
+
+# Estimate g from each measured period using: g = 4π²L/T²
+g_estimates = 4 * np.pi**2 * L / measured_periods**2
+
+# Compute average estimated g and standard deviation
+g_mean = np.mean(g_estimates)
+g_std = np.std(g_estimates)
+print(f"Estimated g: {g_mean:.2f} m/s² ± {g_std:.2f} m/s²")
+</code></pre>
+<p>Estimated g: 9.85 m/s² ± 0.21 m/s²</p>
+<h2 id="3-simulation"><strong>3. Simulation</strong></h2>
+<h3 id="a-histogram-of-measured-periods">A. Histogram of Measured Periods</h3>
+<p>The histogram below shows the distribution of the measured periods:</p>
+<pre><code class="language-python">plt.figure(figsize=(8, 4))
+plt.hist(measured_periods, bins=15, color='skyblue', edgecolor='black')
+plt.title("Histogram of Measured Pendulum Periods")
+plt.xlabel("Period (s)")
+plt.ylabel("Frequency")
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image.png"/></p>
+<h3 id="b-histogram-of-estimated-g-values">B. Histogram of Estimated <span class="arithmatex">\(g\)</span> Values</h3>
+<p>The following plot visualizes how the estimated <span class="arithmatex">\(g\)</span> values are distributed:</p>
+<pre><code class="language-python">plt.figure(figsize=(8, 4))
+plt.hist(g_estimates, bins=15, color='salmon', edgecolor='black')
+plt.title("Histogram of Estimated g")
+plt.xlabel("g (m/s²)")
+plt.ylabel("Frequency")
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<h3 id="c-period-vs-length-plot">C. Period vs. Length Plot</h3>
+<p>To further verify the theoretical relationship, we can plot the period as a function of pendulum length:</p>
+<pre><code class="language-python"># Simulate for different pendulum lengths
+lengths = np.linspace(0.5, 2.0, 20)  # Lengths from 0.5 m to 2.0 m
+T_values = 2 * np.pi * np.sqrt(lengths / g_true)
+
+plt.figure(figsize=(8, 6))
+plt.plot(lengths, T_values, 'o-', label='Theoretical T')
+plt.title("Pendulum Period vs. Length")
+plt.xlabel("Length (m)")
+plt.ylabel("Period (s)")
+plt.legend()
+plt.grid(True)
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<h2 id="4-analysis-and-discussion"><strong>4. Analysis and Discussion</strong></h2>
+<p>Convergence:
+As the number of trials increases, the average estimated <span class="arithmatex">\(g\)</span> converges to the true value (9.81 m/s²). The simulation demonstrates that even with measurement noise, averaging over many trials reduces the error.</p>
+<p>Impact of Measurement Noise:
+Small random errors in <span class="arithmatex">\(T\)</span> can lead to variability in the estimated <span class="arithmatex">\(g\)</span> due to the quadratic relationship in the formula. However, increasing the sample size reduces the uncertainty.</p>
+<p>Assumptions and Limitations:</p>
+<p>Small Angle Approximation: The formula <span class="arithmatex">\(T = 2\pi \sqrt{\frac{L}{g}}\)</span> assumes small oscillation angles. For larger angles, a correction is needed.</p>
+<p>Neglected Factors: Air resistance and friction at the pivot are ignored, which in practice might affect the period slightly.</p>
+<p>Practical Applications:
+Measuring <span class="arithmatex">\(g\)</span> accurately is crucial in experimental physics and engineering—for calibrating instruments and understanding gravitational effects on structures. This pendulum method serves as an accessible, low-cost experiment for these purposes.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
