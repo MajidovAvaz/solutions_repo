@@ -309,13 +309,109 @@ G3.add_edge('A', 'D', resistance=10)
 G3.add_edge('B', 'D', resistance=5)
 print("Complex Graph Example, Equivalent Resistance (A to D):", equivalent_resistance(G3, 'A', 'D'))
 </code></pre>
-<h3 id="efficiency-and-potential-improvements">Efficiency and Potential Improvements</h3>
-<p>•   Efficiency:
-The algorithm works iteratively, reducing series and parallel resistor groups. In the worst case, repeated passes over nodes and edges might have a complexity that depends on the number of nodes and connections. This approach is practical for moderate circuit sizes.
-•   Potential Improvements:
-o   Optimization: Use more targeted graph traversal (e.g., DFS/BFS) to quickly identify reducible nodes.
-o   Advanced Algorithms: Implement union-find or other data structures for more efficient merging.
-o   Parallelization: For very large networks, consider parallel processing during the reduction steps.</p>
+<p>Series Example, Equivalent Resistance (A to C): 15
+Series/Parallel Example, Equivalent Resistance (A to C): None
+Complex Graph Example, Equivalent Resistance (A to D): None</p>
+<h1 id="equivalent-resistance-calculation-with-visualization"><strong>Equivalent Resistance Calculation with Visualization</strong></h1>
+<p>This implementation uses graph theory to calculate the equivalent resistance of a circuit. The circuit is represented as a graph where nodes are junctions and edges are resistors (weighted with their resistance). The algorithm iteratively reduces series and parallel resistor combinations until only one equivalent resistor remains between the start and end nodes. Finally, a visualization is produced using <code>networkx</code> and <code>matplotlib</code>.</p>
+<hr/>
+<h2 id="python-code"><strong>Python Code</strong></h2>
+<pre><code class="language-python">import networkx as nx
+import matplotlib.pyplot as plt
+
+def combine_series_resistors(graph):
+    """
+    Identifies and combines resistors in series.
+    If a node has exactly two neighbors (and is not a terminal),
+    its incident resistors are in series and can be replaced by their sum.
+    """
+    changed = True
+    while changed:
+        changed = False
+        for node in list(graph.nodes):
+            neighbors = list(graph.neighbors(node))
+            if len(neighbors) == 2:
+                n1, n2 = neighbors[0], neighbors[1]
+                if graph.degree(node) == 2:  # Node is only connected to these two nodes
+                    r1 = graph[node][n1]['resistance']
+                    r2 = graph[node][n2]['resistance']
+                    req = r1 + r2
+                    # Add an edge between n1 and n2 with the combined resistance
+                    if graph.has_edge(n1, n2):
+                        # If an edge already exists, parallel reduction will handle it later.
+                        graph.add_edge(n1, n2, resistance=req, series_added=True)
+                    else:
+                        graph.add_edge(n1, n2, resistance=req)
+                    graph.remove_node(node)
+                    changed = True
+                    break
+    return changed
+
+def combine_parallel_resistors(graph):
+    """
+    Identifies and combines resistors in parallel.
+    If two nodes are connected by more than one edge, calculate the equivalent
+    resistance using the formula:
+       1/R_eq = 1/R1 + 1/R2 + ... + 1/Rn.
+    """
+    changed = True
+    while changed:
+        changed = False
+        edges = list(graph.edges(data=True))
+        edge_map = {}
+        for u, v, data in edges:
+            key = tuple(sorted([u, v]))
+            edge_map.setdefault(key, []).append(data['resistance'])
+        for (u, v), resistances in edge_map.items():
+            if len(resistances) &gt; 1:
+                req = 1 / sum(1 / r for r in resistances)
+                # Remove all parallel edges and add a single equivalent edge
+                graph.remove_edges_from([(u, v) for _ in resistances])
+                graph.add_edge(u, v, resistance=req)
+                changed = True
+                break
+    return changed
+
+def equivalent_resistance(graph, start, end):
+    """
+    Iteratively simplifies the circuit graph until only one equivalent resistor remains
+    between the start and end nodes.
+    """
+    while graph.number_of_nodes() &gt; 2:
+        series_changed = combine_series_resistors(graph)
+        parallel_changed = combine_parallel_resistors(graph)
+        if not (series_changed or parallel_changed):
+            break  # No further reduction possible
+    if graph.has_edge(start, end):
+        return graph[start][end]['resistance']
+    else:
+        return None
+
+# ----- Example Usage -----
+# Construct a sample circuit graph
+
+graph = nx.Graph()
+# Example circuit:
+# Nodes: A, B, C, D with multiple series and parallel connections.
+graph.add_edge('A', 'B', resistance=5)
+graph.add_edge('B', 'C', resistance=10)
+graph.add_edge('C', 'D', resistance=15)
+graph.add_edge('A', 'D', resistance=6)
+graph.add_edge('B', 'D', resistance=3)
+
+# Compute the equivalent resistance between nodes A and D.
+eq_res = equivalent_resistance(graph, 'A', 'D')
+print("Equivalent Resistance between A and D:", eq_res)
+
+# ----- Visualization of the Simplified Circuit Graph -----
+pos = nx.spring_layout(graph)  # Compute a layout for the graph
+nx.draw(graph, pos, with_labels=True, node_color='lightblue', edge_color='gray', node_size=500)
+labels = nx.get_edge_attributes(graph, 'resistance')
+nx.draw_networkx_edge_labels(graph, pos, edge_labels=labels)
+plt.title("Simplified Circuit Graph with Resistances")
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-3.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
