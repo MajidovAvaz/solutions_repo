@@ -162,10 +162,6 @@ Complex Graph Example, Equivalent Resistance (A to D): None
 
 This implementation uses graph theory to calculate the equivalent resistance of a circuit. The circuit is represented as a graph where nodes are junctions and edges are resistors (weighted with their resistance). The algorithm iteratively reduces series and parallel resistor combinations until only one equivalent resistor remains between the start and end nodes. Finally, a visualization is produced using `networkx` and `matplotlib`.
 
----
-
-## **Python Code**
-
 ```python
 import networkx as nx
 import matplotlib.pyplot as plt
