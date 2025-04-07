@@ -192,7 +192,7 @@ def plot_needles(y_center, theta, crosses, L=1.0, d=1.5, num_shown=200):
     plt.grid(True)
     plt.show()
 ```
-
+It doesnt produce a plot because it needs input from the simulation first.
 The following code below builds on the Buffon’s Needle simulation and includes a visual representation of the needle drops:
 
 - Red needles indicate those that **crossed** a line.
