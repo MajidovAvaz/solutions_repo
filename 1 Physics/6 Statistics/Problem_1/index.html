@@ -261,6 +261,73 @@ plt.suptitle("Sampling Distributions of the Mean", y=1.02, fontsize=16)
 plt.show()
 </code></pre>
 <p><img alt="alt text" src="../image-1.png"/></p>
+<h1 id="3-parameter-exploration"><strong>3. Parameter Exploration</strong></h1>
+<h2 id="key-factors-to-investigate"><strong>Key Factors to Investigate</strong></h2>
+<ul>
+<li><strong>Original distribution shape:</strong></li>
+<li>Symmetric (Uniform)</li>
+<li>Skewed (Exponential)</li>
+<li>
+<p>Discrete (Binomial)</p>
+</li>
+<li>
+<p><strong>Sample size:</strong></p>
+</li>
+<li>Small (e.g., 5–10) → slow convergence</li>
+<li>
+<p>Larger (e.g., 30–50) → faster convergence</p>
+</li>
+<li>
+<p><strong>Population variance:</strong></p>
+</li>
+<li>Affects <strong>spread</strong> of the sampling distribution</li>
+<li>High variance → <strong>wider</strong> sampling distribution</li>
+</ul>
+<hr/>
+<h2 id="observations-to-highlight"><strong>Observations to Highlight</strong></h2>
+<ul>
+<li>
+<p><strong>Exponential Distribution:</strong><br/>
+  Strongly skewed, but sample means become symmetric with larger <span class="arithmatex">\(n\)</span>.</p>
+</li>
+<li>
+<p><strong>Uniform Distribution:</strong><br/>
+  Converges quickly since it’s already bounded and symmetric.</p>
+</li>
+<li>
+<p><strong>Binomial Distribution (with low <span class="arithmatex">\(n\)</span>):</strong><br/>
+  Discrete jumps are visible, but smooth out with sampling.</p>
+</li>
+<li>
+<p><strong>Higher Variance = Slower Convergence:</strong><br/>
+  Sample means spread out more, requiring <strong>larger <span class="arithmatex">\(n\)</span></strong> to approach normality.</p>
+</li>
+</ul>
+<h1 id="4-practical-applications-of-the-central-limit-theorem"><strong>4. Practical Applications of the Central Limit Theorem</strong></h1>
+<h2 id="why-clt-matters"><strong>Why CLT Matters</strong></h2>
+<p>The <strong>Central Limit Theorem (CLT)</strong> is critical in statistics because it allows us to make predictions and decisions based on <strong>sample data</strong>, even if the population distribution is unknown.</p>
+<hr/>
+<h2 id="estimating-population-parameters"><strong>Estimating Population Parameters</strong></h2>
+<ul>
+<li>Sample means follow a <strong>normal distribution</strong> for large enough samples.</li>
+<li>Enables construction of <strong>confidence intervals</strong> and <strong>hypothesis testing</strong>.</li>
+<li>Used in surveys, experiments, and polling (e.g., predicting election outcomes).</li>
+</ul>
+<hr/>
+<h2 id="quality-control-in-manufacturing"><strong>Quality Control in Manufacturing</strong></h2>
+<ul>
+<li>CLT helps track <strong>mean product quality</strong> over time.</li>
+<li>Sample-based control charts rely on the assumption that the mean of measurements is <strong>normally distributed</strong>.</li>
+<li>Essential for detecting shifts or defects in production.</li>
+</ul>
+<hr/>
+<h2 id="financial-modeling"><strong>Financial Modeling</strong></h2>
+<ul>
+<li>Returns and risks are modeled assuming <strong>normally distributed averages</strong>.</li>
+<li>CLT justifies using <strong>sample averages</strong> to estimate expected returns or volatility.</li>
+<li>Supports <strong>risk analysis</strong> and <strong>portfolio optimization</strong>.</li>
+</ul>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
