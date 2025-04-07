@@ -101,3 +101,79 @@ plt.suptitle("Sampling Distributions of the Mean", y=1.02, fontsize=16)
 plt.show()
 ```
 ![alt text](image-1.png)
+
+
+
+
+
+# **3. Parameter Exploration**
+
+## **Key Factors to Investigate**
+
+- **Original distribution shape:**
+  - Symmetric (Uniform)
+  - Skewed (Exponential)
+  - Discrete (Binomial)
+
+- **Sample size:**
+  - Small (e.g., 5–10) → slow convergence
+  - Larger (e.g., 30–50) → faster convergence
+
+- **Population variance:**
+  - Affects **spread** of the sampling distribution
+  - High variance → **wider** sampling distribution
+
+---
+
+## **Observations to Highlight**
+
+- **Exponential Distribution:**  
+  Strongly skewed, but sample means become symmetric with larger $n$.
+
+- **Uniform Distribution:**  
+  Converges quickly since it’s already bounded and symmetric.
+
+- **Binomial Distribution (with low $n$):**  
+  Discrete jumps are visible, but smooth out with sampling.
+
+- **Higher Variance = Slower Convergence:**  
+  Sample means spread out more, requiring **larger $n$** to approach normality.
+
+
+
+
+
+# **4. Practical Applications of the Central Limit Theorem**
+
+## **Why CLT Matters**
+
+The **Central Limit Theorem (CLT)** is critical in statistics because it allows us to make predictions and decisions based on **sample data**, even if the population distribution is unknown.
+
+---
+
+## **Estimating Population Parameters**
+
+- Sample means follow a **normal distribution** for large enough samples.
+- Enables construction of **confidence intervals** and **hypothesis testing**.
+- Used in surveys, experiments, and polling (e.g., predicting election outcomes).
+
+---
+
+## **Quality Control in Manufacturing**
+
+- CLT helps track **mean product quality** over time.
+- Sample-based control charts rely on the assumption that the mean of measurements is **normally distributed**.
+- Essential for detecting shifts or defects in production.
+
+---
+
+## **Financial Modeling**
+
+- Returns and risks are modeled assuming **normally distributed averages**.
+- CLT justifies using **sample averages** to estimate expected returns or volatility.
+- Supports **risk analysis** and **portfolio optimization**.
+
+---
+
+
+
