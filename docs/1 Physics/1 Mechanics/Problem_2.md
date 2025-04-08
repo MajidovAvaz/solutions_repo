@@ -97,7 +97,7 @@ The **forced damped pendulum** model has widespread applications in engineering,
 - **Rehabilitation therapy** and **prosthetic limb design** apply the principles of forced oscillations.  
 
 ### **Conclusion**
-The forced damped pendulum isn’t just a theoretical concept—it plays a vital role in **engineering, biomechanics, and energy systems**. Understanding these dynamics allows us to improve **stability, efficiency, and safety** in various real-world applications. 🚀
+The forced damped pendulum isn’t just a theoretical concept—it plays a vital role in **engineering, biomechanics, and energy systems**. Understanding these dynamics allows us to improve **stability, efficiency, and safety** in various real-world applications. 
 
 
 

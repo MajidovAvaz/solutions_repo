@@ -146,9 +146,9 @@ where:
 ## **4. Summary of Velocity Dependence**
 | Velocity | Formula | Mass ($M$) | Radius ($R$) | Orbital Speed ($v_{\text{orb}}$) |
 |----------|---------|------------|--------------|-----------------|
-| **First ($v_1$)** | $\sqrt{G M / R}$ | 🔼 Increases | 🔽 Decreases | ❌ Not required |
-| **Second ($v_2$)** | $\sqrt{2 G M / R}$ | 🔼 Increases | 🔽 Decreases | ❌ Not required |
-| **Third ($v_3$)** | $\sqrt{v_2^2 + v_{\text{orb}}^2}$ | 🔼 Increases | 🔽 Decreases | 🔼 Increases |
+| **First ($v_1$)** | $\sqrt{G M / R}$ |  Increases |  Decreases |  Not required |
+| **Second ($v_2$)** | $\sqrt{2 G M / R}$ |  Increases |  Decreases |  Not required |
+| **Third ($v_3$)** | $\sqrt{v_2^2 + v_{\text{orb}}^2}$ |  Increases |  Decreases |  Increases |
 
 ---
 
