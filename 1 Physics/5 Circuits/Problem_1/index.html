@@ -309,9 +309,9 @@ G3.add_edge('A', 'D', resistance=10)
 G3.add_edge('B', 'D', resistance=5)
 print("Complex Graph Example, Equivalent Resistance (A to D):", equivalent_resistance(G3, 'A', 'D'))
 </code></pre>
-<p>Series Example, Equivalent Resistance (A to C): 15
-Series/Parallel Example, Equivalent Resistance (A to C): None
-Complex Graph Example, Equivalent Resistance (A to D): None</p>
+<p>Series Example, Equivalent Resistance (A to C): 15</p>
+<p>Series/Parallel Example, Equivalent Resistance (A to C): None</p>
+<p>Complex Graph Example, Equivalent Resistance (A to D): None</p>
 <h1 id="equivalent-resistance-calculation-with-visualization"><strong>Equivalent Resistance Calculation with Visualization</strong></h1>
 <p>This implementation uses graph theory to calculate the equivalent resistance of a circuit. The circuit is represented as a graph where nodes are junctions and edges are resistors (weighted with their resistance). The algorithm iteratively reduces series and parallel resistor combinations until only one equivalent resistor remains between the start and end nodes. Finally, a visualization is produced using <code>networkx</code> and <code>matplotlib</code>.</p>
 <pre><code class="language-python">import networkx as nx
