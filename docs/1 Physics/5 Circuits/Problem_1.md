@@ -153,7 +153,9 @@ G3.add_edge('B', 'D', resistance=5)
 print("Complex Graph Example, Equivalent Resistance (A to D):", equivalent_resistance(G3, 'A', 'D'))
 ```
 Series Example, Equivalent Resistance (A to C): 15
+
 Series/Parallel Example, Equivalent Resistance (A to C): None
+
 Complex Graph Example, Equivalent Resistance (A to D): None
 
 
