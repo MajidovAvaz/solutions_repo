@@ -258,6 +258,7 @@ print(f"Estimated π ≈ {pi_val:.6f}")
 plot_needles(y_vals, theta_vals, cross_mask)
 ```
 ![alt text](image-5.png)
+![alt text]({F516F53B-00D9-4DC7-9027-5B36D67B91C6}.png)
 
 
 ## **4. Analysis of Accuracy and Convergence**
